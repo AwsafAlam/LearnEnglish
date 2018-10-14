@@ -5,12 +5,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.awsaf.learnenglish.R;
 
 public class LoginActivity extends AppCompatActivity {
 
     private Button login;
+    private TextView usename;
+    private TextView password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
