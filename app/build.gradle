@@ -44,10 +44,24 @@ dependencies {
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
+    implementation 'com.basgeekball:awesome-validation:2.0'
+
+    //stetho dev library
+    implementation 'com.facebook.stetho:stetho:1.5.0'
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+    implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
+
+    //Memory Leak detection
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.2'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.2'
+    // Optional, if you use support library fragments:
+    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.2'
+
     // retrofit, gson
-    implementation 'com.google.code.gson:gson:2.6.2'
-    implementation 'com.squareup.retrofit2:retrofit:2.0.2'
-    implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    //implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
+    implementation 'com.squareup.retrofit2:converter-moshi:2.3.0'
 
 //    Credit Card Validation
 //    implementation('commons-validator:commons-validator:1.6') {
