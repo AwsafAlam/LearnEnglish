@@ -1,6 +1,6 @@
 package com.example.awsaf.learnenglish.model.ApiResponse;
 
-import com.google.gson.annotations.SerializedName;
+import com.squareup.moshi.Json;
 
 public class Token {
 
@@ -12,7 +12,7 @@ public class Token {
         this.token = token;
     }
 
-    @SerializedName("token")
+    @Json(name = "token")
     private String token;
 
 }

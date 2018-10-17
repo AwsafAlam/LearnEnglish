@@ -1,14 +1,14 @@
 package com.example.awsaf.learnenglish.model.ApiResponse;
 
 
-import com.google.gson.annotations.SerializedName;
+import com.squareup.moshi.Json;
 
 import java.util.List;
 
 
 public class Response {
 
-    @SerializedName("success")
+    @Json(name = "success")
     private Token successtoken;
 
     public Token getSuccesstoken() {
