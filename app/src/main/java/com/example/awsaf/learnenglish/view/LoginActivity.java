@@ -13,6 +13,9 @@ import android.widget.Toast;
 import com.example.awsaf.learnenglish.R;
 import com.example.awsaf.learnenglish.Rest.ApiClient;
 import com.example.awsaf.learnenglish.Rest.ApiInterface;
+import com.example.awsaf.learnenglish.Rest.ApiService;
+import com.example.awsaf.learnenglish.Rest.RetrofitBuilder;
+import com.example.awsaf.learnenglish.model.ApiResponse.AccessToken;
 import com.example.awsaf.learnenglish.model.ApiResponse.LocationInfo;
 import com.example.awsaf.learnenglish.model.ApiResponse.Response;
 import com.google.gson.JsonObject;
@@ -50,15 +53,15 @@ public class LoginActivity extends AppCompatActivity {
 
     private void loginUser(String email, String pass) {
 
-        final ProgressDialog mprogressDialog;
-        mprogressDialog = new ProgressDialog(LoginActivity.this);
-        mprogressDialog.setCancelable(false);
-        mprogressDialog.setMessage("Finding Nearby Bikes");
-        mprogressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        //mprogressDialog.setProgress(0);
-        mprogressDialog.show();
+//        final ProgressDialog mprogressDialog;
+//        mprogressDialog = new ProgressDialog(LoginActivity.this);
+//        mprogressDialog.setCancelable(false);
+//        mprogressDialog.setMessage("Finding Nearby Bikes");
+//        mprogressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+//        //mprogressDialog.setProgress(0);
+//        mprogressDialog.show();
 
-        ApiInterface apiService =
+        /*ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
 
 
@@ -81,6 +84,31 @@ public class LoginActivity extends AppCompatActivity {
                     mprogressDialog.dismiss();
             }
 
+        });*/
+
+        ApiService apiService = RetrofitBuilder.createService(ApiService.class);
+
+        Call<AccessToken> call = apiService.login(email , pass);
+        call.enqueue(new Callback<AccessToken>() {
+            @Override
+            public void onResponse(Call<AccessToken> call, retrofit2.Response<AccessToken> response) {
+                Log.i("Awsaf_Debug" , "Success -> "+call.toString() +" ");
+
+                if(response.isSuccessful()){
+                    Toast.makeText(LoginActivity.this, "Succcess", Toast.LENGTH_SHORT).show();
+
+                }
+                else {
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AccessToken> call, Throwable t) {
+                Toast.makeText(LoginActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                Log.i("Awsaf_Debug" , "Hello -> "+call.toString() +" "+call.clone().toString());
+
+            }
         });
     }
 }
