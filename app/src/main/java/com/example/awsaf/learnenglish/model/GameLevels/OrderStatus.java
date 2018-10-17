@@ -1,4 +1,4 @@
-package com.example.awsaf.learnenglish.model;
+package com.example.awsaf.learnenglish.model.GameLevels;
 
 /**
  * Created by HP-HP on 07-06-2016.

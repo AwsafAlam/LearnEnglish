@@ -8,9 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.awsaf.learnenglish.R;
-import com.example.awsaf.learnenglish.model.OrderStatus;
-import com.example.awsaf.learnenglish.model.Orientation;
-import com.example.awsaf.learnenglish.model.TimeLineModel;
+import com.example.awsaf.learnenglish.model.GameLevels.OrderStatus;
+import com.example.awsaf.learnenglish.model.GameLevels.Orientation;
+import com.example.awsaf.learnenglish.model.GameLevels.TimeLineModel;
 import com.github.vipulasri.timelineview.TimelineView;
 
 import java.util.List;

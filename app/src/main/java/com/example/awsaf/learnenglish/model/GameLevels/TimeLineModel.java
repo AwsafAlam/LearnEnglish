@@ -1,4 +1,4 @@
-package com.example.awsaf.learnenglish.model;
+package com.example.awsaf.learnenglish.model.GameLevels;
 
 import android.os.Parcel;
 import android.os.Parcelable;

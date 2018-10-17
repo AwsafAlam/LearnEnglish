@@ -35,7 +35,7 @@ tools:context=".view.LoginActivity">
     android:textColor="#000000" />
 
 <EditText
-    android:id="@+id/editText_login_mobile"
+    android:id="@+id/pass"
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:layout_below="@+id/editText_login_name"
@@ -61,7 +61,7 @@ tools:context=".view.LoginActivity">
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:layout_marginStart="60dp"
-    android:layout_below="@+id/editText_login_mobile"
+    android:layout_below="@+id/pass"
     android:layout_centerHorizontal="true"
     android:layout_marginTop="35dp"
     android:textStyle="bold"
