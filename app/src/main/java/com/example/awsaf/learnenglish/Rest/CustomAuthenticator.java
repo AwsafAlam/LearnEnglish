@@ -1,6 +1,6 @@
 package com.example.awsaf.learnenglish.Rest;
 
-import com.example.awsaf.learnenglish.model.ApiResponse.AccessToken;
+import com.example.awsaf.learnenglish.model.ApiResponse.Token;
 import com.example.awsaf.learnenglish.utils.NetworkUtlis.TokenManager;
 
 import java.io.IOException;
@@ -39,17 +39,18 @@ public class CustomAuthenticator implements Authenticator {
             return null;
         }
 
-        AccessToken token = tokenManager.getToken();
+        String token = tokenManager.getToken();
 
         ApiService service = RetrofitBuilder.createService(ApiService.class);
-        Call<AccessToken> call = service.refresh(token.getTokenType() + "a");
-        retrofit2.Response<AccessToken> res = call.execute();
+        Call<Token> call = service.refresh(token + "a");
+
+        retrofit2.Response<Token> res = call.execute();
 
         if(res.isSuccessful()){
-            AccessToken newToken = res.body();
+            Token newToken = res.body();
             tokenManager.saveToken(newToken);
 
-            return response.request().newBuilder().header("Authorization", "Bearer " + res.body().getTokenType()).build();
+            return response.request().newBuilder().header("Authorization", "Bearer " + res.body().getToken()).build();
         }else{
             return null;
         }

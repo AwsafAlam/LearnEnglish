@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +16,7 @@ import com.example.awsaf.learnenglish.Rest.ApiService;
 import com.example.awsaf.learnenglish.Rest.RetrofitBuilder;
 import com.example.awsaf.learnenglish.model.ApiResponse.ApiError;
 import com.example.awsaf.learnenglish.model.ApiResponse.Response;
+import com.example.awsaf.learnenglish.utils.NetworkUtlis.TokenManager;
 import com.example.awsaf.learnenglish.utils.NetworkUtlis.Utils;
 
 import java.util.List;
@@ -27,8 +29,12 @@ import retrofit2.Callback;
 public class LoginActivity extends AppCompatActivity {
 
     private Button login;
-    private TextView email;
-    private TextView password;
+    private EditText email;
+    private EditText password;
+    private TextView signup1;
+    private TextView signup2;
+
+    TokenManager tokenManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,15 +45,31 @@ public class LoginActivity extends AppCompatActivity {
         email = findViewById(R.id.editText_login_name);
         password = findViewById(R.id.pass);
 
+        signup1 = findViewById(R.id.signup_button);
+        signup2 = findViewById(R.id.textView_signup);
 
+        tokenManager = TokenManager.getInstance(getSharedPreferences("prefs", MODE_PRIVATE));
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 loginUser(email.getText().toString() , password.getText().toString());
-//                startActivity(new Intent(LoginActivity.this , MainActivity.class));
             }
         });
+
+        signup1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this , RegisterActivity.class));
+            }
+        });
+        signup2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this , RegisterActivity.class));
+            }
+        });
+
     }
 
     private void loginUser(String email, String pass) {
@@ -70,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if(response.isSuccessful()){
                     Log.i("Awsaf_Debug" , "Success ->  "+response.body().getSuccesstoken().getToken());
-
+                    tokenManager.saveToken(response.body().getSuccesstoken());
                     Toast.makeText(LoginActivity.this, "Logged in", Toast.LENGTH_SHORT).show();
                     if (mprogressDialog.isShowing())
                         mprogressDialog.dismiss();

@@ -1,7 +1,7 @@
 package com.example.awsaf.learnenglish.Rest;
 
-import com.example.awsaf.learnenglish.model.ApiResponse.AccessToken;
 import com.example.awsaf.learnenglish.model.ApiResponse.Response;
+import com.example.awsaf.learnenglish.model.ApiResponse.Token;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -27,7 +27,7 @@ public interface ApiService {
 
     @POST("refresh")
     @FormUrlEncoded
-    Call<AccessToken> refresh(@Field("refresh_token") String refreshToken);
+    Call<Token> refresh(@Field("refresh_token") String refreshToken);
 
 //    @GET("posts")
 //    Call<PostResponse> posts();

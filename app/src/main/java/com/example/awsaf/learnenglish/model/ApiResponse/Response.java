@@ -3,8 +3,6 @@ package com.example.awsaf.learnenglish.model.ApiResponse;
 
 import com.squareup.moshi.Json;
 
-import java.util.List;
-
 
 public class Response {
 
@@ -18,12 +16,5 @@ public class Response {
     public void setSuccesstoken(Token successtoken) {
         this.successtoken = successtoken;
     }
-    //    @SerializedName("nearby")
-//    private int nearby;
-//    @SerializedName("total_results")
-//    private int totalResults;
-//    @SerializedName("total_bikes")
-//    private int totalBikes;
-
 
 }

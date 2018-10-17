@@ -2,7 +2,7 @@ package com.example.awsaf.learnenglish.utils.NetworkUtlis;
 
 import android.content.SharedPreferences;
 
-import com.example.awsaf.learnenglish.model.ApiResponse.AccessToken;
+import com.example.awsaf.learnenglish.model.ApiResponse.Token;
 
 
 public class TokenManager {
@@ -17,28 +17,25 @@ public class TokenManager {
         this.editor = prefs.edit();
     }
 
-    static synchronized TokenManager getInstance(SharedPreferences prefs){
+    public static synchronized TokenManager getInstance(SharedPreferences prefs){
         if(INSTANCE == null){
             INSTANCE = new TokenManager(prefs);
         }
         return INSTANCE;
     }
 
-    public void saveToken(AccessToken token){
-        editor.putString("ACCESS_TOKEN", token.getTokenType()).commit();
-        editor.putString("REFRESH_TOKEN", token.getTokenType()).commit();
+    public void saveToken(Token token){
+        editor.putString("ACCESS_TOKEN", token.getToken()).commit();
     }
 
     public void deleteToken(){
         editor.remove("ACCESS_TOKEN").commit();
-        editor.remove("REFRESH_TOKEN").commit();
     }
 
-    public AccessToken getToken(){
-        AccessToken token = new AccessToken();
-        token.setTokenType(prefs.getString("ACCESS_TOKEN", null));
-        token.setTokenType(prefs.getString("REFRESH_TOKEN", null));
-        return token;
+    public String  getToken(){
+        Token token = new Token();
+        token.setToken(prefs.getString("ACCESS_TOKEN", null));
+        return token.getToken();
     }
 
 

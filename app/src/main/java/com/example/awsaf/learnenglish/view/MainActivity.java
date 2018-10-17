@@ -1,22 +1,26 @@
 package com.example.awsaf.learnenglish.view;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.awsaf.learnenglish.R;
+import com.example.awsaf.learnenglish.Rest.ApiService;
 import com.example.awsaf.learnenglish.model.GameLevels.OrderStatus;
 import com.example.awsaf.learnenglish.model.GameLevels.Orientation;
 import com.example.awsaf.learnenglish.model.GameLevels.TimeLineModel;
+import com.example.awsaf.learnenglish.utils.NetworkUtlis.TokenManager;
 import com.example.awsaf.learnenglish.utils.TimeLineAdapter;
+import com.facebook.login.Login;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,12 +35,22 @@ public class MainActivity extends AppCompatActivity
     private Orientation mOrientation;
     private boolean mWithLinePadding;
 
+    TokenManager tokenManager;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        tokenManager = TokenManager.getInstance(getSharedPreferences("prefs", MODE_PRIVATE));
+
+        if(tokenManager.getToken() == null){
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            finish();
+        }
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
