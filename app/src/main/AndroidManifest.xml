@@ -25,9 +25,13 @@
         <activity
             android:name=".view.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".view.RegisterActivity"
+        <activity
+            android:name=".view.RegisterActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
+        <activity android:name=".view.TaskViews.MatchingPairs" />
+        <activity android:name=".view.TaskViews.MCQ" />
+        <activity android:name=".view.TaskViews.Construction" />
+        <activity android:name=".view.TaskViews.FIllInTheBlanks"></activity>
     </application>
 
 </manifest>
