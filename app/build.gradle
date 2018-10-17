@@ -62,6 +62,9 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
     implementation 'com.squareup.retrofit2:converter-moshi:2.3.0'
 
+    //Stepper (https://android-arsenal.com/details/1/6448)
+    implementation 'com.shuhart.stepview:stepview:1.4.0'
+
 //    Credit Card Validation
 //    implementation('commons-validator:commons-validator:1.6') {
 //        exclude group: 'commons-logging', module: 'commons-logging'
