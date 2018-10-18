@@ -28,10 +28,16 @@
         <activity
             android:name=".view.RegisterActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".view.TaskViews.MatchingPairs" />
-        <activity android:name=".view.TaskViews.MCQ" />
-        <activity android:name=".view.TaskViews.Construction" />
-        <activity android:name=".view.TaskViews.FIllInTheBlanks"></activity>
+        <activity
+            android:name=".view.TaskViews.MCQ"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".view.TaskViews.Construction"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".view.TaskViews.FIllInTheBlanks"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".view.TaskActivity"></activity>
     </application>
 
 </manifest>

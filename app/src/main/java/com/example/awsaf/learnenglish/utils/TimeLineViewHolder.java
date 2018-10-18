@@ -28,5 +28,10 @@ public class TimeLineViewHolder extends RecyclerView.ViewHolder {
 
         ButterKnife.bind(this, itemView);
         mTimelineView.initLine(viewType);
+
+//        itemView.setOnLongClickListener((View.OnLongClickListener) this);
     }
+
+
+
 }

@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.awsaf.learnenglish.R;
 import com.example.awsaf.learnenglish.model.GameLevels.OrderStatus;
@@ -53,7 +54,7 @@ public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(TimeLineViewHolder holder, int position) {
+    public void onBindViewHolder(TimeLineViewHolder holder, final int position) {
 
         TimeLineModel timeLineModel = mFeedList.get(position);
 
@@ -73,6 +74,13 @@ public class TimeLineAdapter extends RecyclerView.Adapter<TimeLineViewHolder> {
             holder.mDate.setVisibility(View.GONE);
 
         holder.mMessage.setText(timeLineModel.getMessage());
+
+//        holder.mMessage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(mContext, "Clicked ->"+position, Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 
     @Override

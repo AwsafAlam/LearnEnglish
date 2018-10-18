@@ -10,8 +10,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.awsaf.learnenglish.R;
 import com.example.awsaf.learnenglish.Rest.ApiService;
@@ -20,6 +23,7 @@ import com.example.awsaf.learnenglish.model.GameLevels.Orientation;
 import com.example.awsaf.learnenglish.model.GameLevels.TimeLineModel;
 import com.example.awsaf.learnenglish.utils.NetworkUtlis.TokenManager;
 import com.example.awsaf.learnenglish.utils.TimeLineAdapter;
+import com.example.awsaf.learnenglish.view.TaskViews.MCQ;
 import com.facebook.login.Login;
 
 import java.util.ArrayList;
@@ -35,6 +39,8 @@ public class MainActivity extends AppCompatActivity
     private Orientation mOrientation;
     private boolean mWithLinePadding;
 
+    private Button btn; //DEBUG
+
     TokenManager tokenManager;
 
 
@@ -48,6 +54,8 @@ public class MainActivity extends AppCompatActivity
         tokenManager = TokenManager.getInstance(getSharedPreferences("prefs", MODE_PRIVATE));
 
         if(tokenManager.getToken() == null){
+            Log.i("Awsaf_Debug" , "Redirecting");
+
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
             finish();
         }
@@ -80,6 +88,15 @@ public class MainActivity extends AppCompatActivity
 
         initView();
 
+        btn = findViewById(R.id.start);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this , MCQ.class));
+            }
+        });
+
     }
 
     private LinearLayoutManager getLinearLayoutManager() {
@@ -97,15 +114,15 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void setDataListItems(){
-        mDataList.add(new TimeLineModel("Item successfully delivered", "", OrderStatus.INACTIVE));
-        mDataList.add(new TimeLineModel("Courier is out to delivery your order", "2017-02-12 08:00", OrderStatus.ACTIVE));
-        mDataList.add(new TimeLineModel("Item has reached courier facility at New Delhi", "2017-02-11 21:00", OrderStatus.COMPLETED));
-        mDataList.add(new TimeLineModel("Item has been given to the courier", "2017-02-11 18:00", OrderStatus.COMPLETED));
-        mDataList.add(new TimeLineModel("Item is packed and will dispatch soon", "2017-02-11 09:30", OrderStatus.COMPLETED));
-        mDataList.add(new TimeLineModel("Order is being readied for dispatch", "2017-02-11 08:00", OrderStatus.COMPLETED));
-        mDataList.add(new TimeLineModel("Order processing initiated", "2017-02-10 15:00", OrderStatus.COMPLETED));
-        mDataList.add(new TimeLineModel("Order confirmed by seller", "2017-02-10 14:30", OrderStatus.COMPLETED));
-        mDataList.add(new TimeLineModel("Order placed successfully", "2017-02-10 14:00", OrderStatus.COMPLETED));
+        mDataList.add(new TimeLineModel("Level completed Successfully", "", OrderStatus.INACTIVE));
+        mDataList.add(new TimeLineModel("Basic 2", "2017-02-12 08:00", OrderStatus.ACTIVE));
+        mDataList.add(new TimeLineModel("verb", "2017-02-11 21:00", OrderStatus.COMPLETED));
+        mDataList.add(new TimeLineModel("Adjective", "2017-02-11 18:00", OrderStatus.COMPLETED));
+        mDataList.add(new TimeLineModel("Pronouns", "2017-02-11 09:30", OrderStatus.COMPLETED));
+        mDataList.add(new TimeLineModel("Adverb", "2017-02-11 08:00", OrderStatus.COMPLETED));
+        mDataList.add(new TimeLineModel("Places", "2017-02-10 15:00", OrderStatus.COMPLETED));
+        mDataList.add(new TimeLineModel("Travel", "2017-02-10 14:30", OrderStatus.COMPLETED));
+        mDataList.add(new TimeLineModel("Sentence construction", "2017-02-10 14:00", OrderStatus.COMPLETED));
     }
 
 //    @Override

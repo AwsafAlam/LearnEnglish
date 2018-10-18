@@ -98,14 +98,15 @@ public class LoginActivity extends AppCompatActivity {
                         mprogressDialog.dismiss();
 
                     startActivity(new Intent(LoginActivity.this , MainActivity.class));
+                    finish();
                 }
                 else {
                     Toast.makeText(LoginActivity.this, "Wrong Username or pass", Toast.LENGTH_SHORT).show();
-
-                    handleErrors(response.errorBody());
+                    if (mprogressDialog.isShowing())
+                        mprogressDialog.dismiss();
+//                    handleErrors(response.errorBody());
                 }
-                if (mprogressDialog.isShowing())
-                    mprogressDialog.dismiss();
+
             }
 
             @Override

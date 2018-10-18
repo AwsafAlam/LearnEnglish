@@ -29,5 +29,9 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="password">Password</string>
     <string name="finish">Finish</string>
+    <string name="check">Check</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
