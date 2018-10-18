@@ -12,10 +12,10 @@ import com.example.awsaf.learnenglish.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MCQ extends Fragment {
+public class Word_image extends Fragment {
 
 
-    public MCQ() {
+    public Word_image() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class MCQ extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mcq, container, false);
+        return inflater.inflate(R.layout.fragment_word_image, container, false);
     }
 
 }

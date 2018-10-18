@@ -1,54 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.TaskViews.Translation">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.TaskViews.Word_puzzle">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/prompt_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="10dp"
-        android:text="@string/translate_this_sentence"
-        android:textAlignment="textStart"
+        android:layout_below="@+id/button_signin"
+        android:layout_alignStart="@+id/button_signin"
+        android:layout_alignParentBottom="true"
+        android:text="What is the spelling of বিড়াল ? "
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <GridLayout
+        android:id="@+id/puzzle_grid"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:layout_marginTop="8dp"
-        android:orientation="horizontal"
+        android:columnCount="3"
+        android:columnOrderPreserved="true"
+        android:padding="10dp"
+        android:rowCount="1"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/prompt_text">
+        app:layout_constraintTop_toBottomOf="@+id/prompt_text"
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_volume" />
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_puzzle_piece"
+            android:tint="@android:color/black" />
 
-        <TextView
-            android:id="@+id/Speak_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_margin="15dp"
-            android:text="House"
-            android:textColor="@color/black"
-            android:textSize="25sp" />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_puzzle_piece"
+            android:tint="@android:color/black" />
 
-    </LinearLayout>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_puzzle_piece"
+            android:tint="@android:color/black" />
+
+
+    </GridLayout>
 
     <GridLayout
         android:id="@+id/word_grid"
@@ -62,7 +80,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/puzzle_grid">
 
         <android.support.v7.widget.CardView
             android:id="@+id/cardView"
@@ -111,8 +129,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/imageView"
                 android:layout_centerInParent="true"
-                android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
                 android:text="x"
                 android:textColor="@android:color/black"
                 android:textSize="15sp" />

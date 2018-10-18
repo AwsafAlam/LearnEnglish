@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.example.awsaf.learnenglish.R;
 import com.example.awsaf.learnenglish.view.TaskViews.MatchingPairs;
+import com.example.awsaf.learnenglish.view.TaskViews.Translation;
 import com.shuhart.stepview.StepView;
 
 import java.util.ArrayList;
@@ -73,6 +74,10 @@ public class TaskActivity extends AppCompatActivity {
                 } else {
                     stepView.done(true);
                 }
+                fragmentManager.beginTransaction().replace(R.id.fragment_container , new Translation(), null).commit();
+
+                // Get required fragment dynamically [ From ENUM ]
+
             }
         });
         findViewById(R.id.fragment_container).setOnClickListener(new View.OnClickListener() {

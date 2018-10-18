@@ -27,5 +27,6 @@
     <color name="card_cvv_color">#383838</color>
     <color name="CTA_text">#FFFFFF</color>
     <color name="CTA_bg">#32C25E</color>
+    <color name="black">#000</color>
 
 </resources>
