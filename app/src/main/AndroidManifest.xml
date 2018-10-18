@@ -29,15 +29,8 @@
             android:name=".view.RegisterActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".view.TaskViews.MCQ"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".view.TaskViews.Construction"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".view.TaskViews.FIllInTheBlanks"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".view.TaskActivity"></activity>
+            android:name=".view.TaskActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

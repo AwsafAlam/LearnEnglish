@@ -17,14 +17,11 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.awsaf.learnenglish.R;
-import com.example.awsaf.learnenglish.Rest.ApiService;
 import com.example.awsaf.learnenglish.model.GameLevels.OrderStatus;
 import com.example.awsaf.learnenglish.model.GameLevels.Orientation;
 import com.example.awsaf.learnenglish.model.GameLevels.TimeLineModel;
 import com.example.awsaf.learnenglish.utils.NetworkUtlis.TokenManager;
 import com.example.awsaf.learnenglish.utils.TimeLineAdapter;
-import com.example.awsaf.learnenglish.view.TaskViews.MCQ;
-import com.facebook.login.Login;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,7 +90,7 @@ public class MainActivity extends AppCompatActivity
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this , MCQ.class));
+                startActivity(new Intent(MainActivity.this , TaskActivity.class));
             }
         });
 

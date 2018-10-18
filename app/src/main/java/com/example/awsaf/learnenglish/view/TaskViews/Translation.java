@@ -9,10 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.awsaf.learnenglish.R;
+public class Translation extends Fragment {
 
-public class MatchingPairs extends Fragment {
-
-    public MatchingPairs() {
+    public Translation() {
         // Required empty public constructor
     }
 
@@ -21,8 +20,7 @@ public class MatchingPairs extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_matching_pairs, container, false);
+        return inflater.inflate(R.layout.fragment_translation, container, false);
     }
-
 
 }

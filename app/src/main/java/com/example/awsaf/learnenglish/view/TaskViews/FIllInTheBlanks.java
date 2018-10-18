@@ -1,15 +1,27 @@
 package com.example.awsaf.learnenglish.view.TaskViews;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.example.awsaf.learnenglish.R;
 
-public class FIllInTheBlanks extends AppCompatActivity {
+public class FIllInTheBlanks extends Fragment {
+
+    public FIllInTheBlanks() {
+        // Required empty public constructor
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fill_in_the_blanks);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_fill_in_the_blanks, container, false);
     }
+
+
 }
