@@ -8,8 +8,12 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.awsaf.learnenglish.R;
+import com.example.awsaf.learnenglish.view.TaskViews.FIllInTheBlanks;
 import com.example.awsaf.learnenglish.view.TaskViews.MatchingPairs;
+import com.example.awsaf.learnenglish.view.TaskViews.Spelling;
 import com.example.awsaf.learnenglish.view.TaskViews.Translation;
+import com.example.awsaf.learnenglish.view.TaskViews.Word_puzzle;
+import com.example.awsaf.learnenglish.view.TaskViews.Word_sound;
 import com.shuhart.stepview.StepView;
 
 import java.util.ArrayList;
@@ -74,7 +78,21 @@ public class TaskActivity extends AppCompatActivity {
                 } else {
                     stepView.done(true);
                 }
+            if(currentStep == 1){
                 fragmentManager.beginTransaction().replace(R.id.fragment_container , new Translation(), null).commit();
+            }
+            else if(currentStep == 2){
+                fragmentManager.beginTransaction().replace(R.id.fragment_container , new Word_puzzle(), null).commit();
+            }
+            else if(currentStep == 3){
+                fragmentManager.beginTransaction().replace(R.id.fragment_container , new Word_sound(), null).commit();
+            }
+            else  if(currentStep == 5){
+                fragmentManager.beginTransaction().replace(R.id.fragment_container , new Spelling(), null).commit();
+            }
+            else {
+                fragmentManager.beginTransaction().replace(R.id.fragment_container , new FIllInTheBlanks(), null).commit();
+            }
 
                 // Get required fragment dynamically [ From ENUM ]
 
