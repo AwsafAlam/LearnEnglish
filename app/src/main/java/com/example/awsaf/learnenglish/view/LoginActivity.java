@@ -53,7 +53,9 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginUser(email.getText().toString() , password.getText().toString());
+//                loginUser(email.getText().toString() , password.getText().toString());
+                startActivity(new Intent(LoginActivity.this , MainActivity.class));
+
             }
         });
 
@@ -73,8 +75,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void loginUser(String email, String pass) {
+        startActivity(new Intent(LoginActivity.this , MainActivity.class));
 
-        final ProgressDialog mprogressDialog;
+        /*final ProgressDialog mprogressDialog;
         mprogressDialog = new ProgressDialog(LoginActivity.this);
         mprogressDialog.setCancelable(false);
         mprogressDialog.setMessage("Logging In");
@@ -116,7 +119,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (mprogressDialog.isShowing())
                     mprogressDialog.dismiss();
             }
-        });
+        });*/
     }
 
 

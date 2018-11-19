@@ -48,14 +48,14 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        tokenManager = TokenManager.getInstance(getSharedPreferences("prefs", MODE_PRIVATE));
-
-        if(tokenManager.getToken() == null){
-            Log.i("Awsaf_Debug" , "Redirecting");
-
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
-            finish();
-        }
+//        tokenManager = TokenManager.getInstance(getSharedPreferences("prefs", MODE_PRIVATE));
+//
+//        if(tokenManager.getToken() == null){
+//            Log.i("Awsaf_Debug" , "Redirecting");
+//
+//            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+//            finish();
+//        }
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
