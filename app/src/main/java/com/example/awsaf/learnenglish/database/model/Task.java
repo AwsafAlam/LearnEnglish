@@ -4,7 +4,7 @@ package com.example.awsaf.learnenglish.database.model;
  * Created by ravi on 20/02/18.
  */
 
-public class Note {
+public class Task {
     public static final String TABLE_NAME = "notes";
 
     public static final String COLUMN_ID = "id";
@@ -24,10 +24,10 @@ public class Note {
                     + COLUMN_TIMESTAMP + " DATETIME DEFAULT CURRENT_TIMESTAMP"
                     + ")";
 
-    public Note() {
+    public Task() {
     }
 
-    public Note(int id, String note, String timestamp) {
+    public Task(int id, String note, String timestamp) {
         this.id = id;
         this.note = note;
         this.timestamp = timestamp;

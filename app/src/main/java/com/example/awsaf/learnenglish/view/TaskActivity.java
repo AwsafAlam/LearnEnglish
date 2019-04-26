@@ -72,12 +72,13 @@ public class TaskActivity extends AppCompatActivity {
         findViewById(R.id.button_check).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (currentStep < stepView.getStepCount() - 1) {
-                    currentStep++;
-                    stepView.go(currentStep, true);
-                } else {
-                    stepView.done(true);
-                }
+            if (currentStep < stepView.getStepCount() - 1) {
+                currentStep++;
+                stepView.go(currentStep, true);
+            } else {
+                stepView.done(true);
+            }
+
             if(currentStep == 1){
                 fragmentManager.beginTransaction().replace(R.id.fragment_container , new Translation(), null).commit();
             }
@@ -101,11 +102,12 @@ public class TaskActivity extends AppCompatActivity {
         findViewById(R.id.fragment_container).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (currentStep > 0) {
+                if (currentStep > 1) {
                     currentStep--;
                 }
                 stepView.done(false);
                 stepView.go(currentStep, true);
+                initFragment(currentStep);
             }
         });
         List<String> steps = new ArrayList<>();
@@ -113,6 +115,25 @@ public class TaskActivity extends AppCompatActivity {
             steps.add("Step " + (i + 1));
         }
         stepView.setSteps(steps);
+    }
+
+    private void initFragment(int step){
+        if(step == 1){
+            fragmentManager.beginTransaction().replace(R.id.fragment_container , new Translation(), null).commit();
+        }
+        else if(step == 2){
+            fragmentManager.beginTransaction().replace(R.id.fragment_container , new Word_puzzle(), null).commit();
+        }
+        else if(step == 3){
+            fragmentManager.beginTransaction().replace(R.id.fragment_container , new Word_sound(), null).commit();
+        }
+        else  if(step == 5){
+            fragmentManager.beginTransaction().replace(R.id.fragment_container , new Spelling(), null).commit();
+        }
+        else {
+            fragmentManager.beginTransaction().replace(R.id.fragment_container , new FIllInTheBlanks(), null).commit();
+        }
+
     }
 
     private void setupCustomisation() {
